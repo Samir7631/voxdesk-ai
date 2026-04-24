@@ -58,6 +58,4 @@ voxdesk-ai/
 
 
 
-Built with ❤️ by Samir
-
-Want me to create this as an actual README.md file you can download, or just copy-paste this into your repo directly?​​​​​​​​​​​​​​​​
+​​​​​​​​​​​​​​​
