@@ -1,104 +1,63 @@
-# Twilio Media Streams Integration with Deepgram’s Voice Agent API
+VoxDesk AI 🎙️
+Real-time AI-powered voice assistant built with Twilio and Deepgram
+VoxDesk AI is an intelligent voice assistant that handles real-time phone conversations using cutting-edge speech recognition and AI response generation. Built for developers who want to integrate smart voice capabilities into their applications.
 
-This project demonstrates integrating Twilio Media Streams with Deepgram’s Voice Agent API to create an AI-powered voice assistant. The system captures real-time audio from a Twilio call, processes it through Deepgram’s AI to generate a response, and streams the response back to the caller.
+✨ Features
+• 🎤 Real-time Speech Recognition — powered by Deepgram’s ultra-low latency transcription
+• 📞 Phone Call Integration — seamless inbound/outbound call handling via Twilio
+• 🤖 AI Responses — intelligent, context-aware conversational replies
+• ⚡ Low Latency — optimized for natural, human-like conversations
+• 🔄 Streaming Audio — real-time bidirectional audio processing
 
-## Demo video
+🛠️ Tech Stack
 
-https://github.com/user-attachments/assets/b5f6dbe6-1c77-425a-937a-ae952ed9e3b5
 
-## Prerequisites
 
-To set up and run the application, you'll need:
+|Layer |Technology|
+|--------------|----------|
+|Voice & Calls |Twilio |
+|Speech-to-Text|Deepgram |
+|Runtime |Node.js |
+|Protocol |WebSockets|
 
-- **Node.js**: Requires v18 or more. [Download here](https://nodejs.org/).
-- **Twilio Account**: Sign up for a free trial [here](https://www.twilio.com/try-twilio).
-- **Twilio Phone Number with Voice Capabilities**: [Purchase one here](https://www.twilio.com/docs/phone-numbers).
-- **Deepgram Account**: Obtain an API key by signing up [here](https://console.deepgram.com/).
-- **WeatherAPI Account**: Obtain an API key to enable the weather-related function calls. [Sign up here](https://www.weatherapi.com/).
+🚀 Getting Started
+Prerequisites
+• Node.js 18+
+• Twilio account + phone number
+• Deepgram API key
+Installation
 
-## How to setup locally?
-
-### 1. Open an ngrok tunnel
-
-To expose your local development server, use ngrok:
-
-```
-ngrok http 3000
-```
-
-Copy the Forwarding URL (e.g., `https://[your-ngrok-subdomain].ngrok.app`) for use in Twilio’s configuration.
-
-Note: If you change the port in the application, update the ngrok command accordingly.
-
-### 2. Install required packages:
-
-```
+git clone https://github.com/Samir7631/voxdesk-ai.git
+cd voxdesk-ai
 npm install
-```
 
-### 3. Configure the .env File
 
-#### Create a .env file in the root directory and add the following variables:
+Configuration
+Create a .env file:
 
-```
+TWILIO_ACCOUNT_SID=your_twilio_sid
+TWILIO_AUTH_TOKEN=your_twilio_token
+DEEPGRAM_API_KEY=your_deepgram_key
 PORT=3000
-DEEPGRAM_API_KEY=<YOUR_DEEPGRAM_API_KEY>
-WEATHER_API_KEY=<YOUR_WEATHER_API_KEY>
-```
 
-#### Configure Twilio Webhooks
 
-Log in to your Twilio console, go to your Phone Numbers settings, and update the webhook URL to point to your `/incoming` endpoint:
+Run
 
-```
-https://[your-ngrok-subdomain].ngrok.app/incoming
-```
+npm start
 
-## Running the Application
 
-Start the development server:
+📁 Project Structure
 
-```
-npm run dev
-```
+voxdesk-ai/
+├── src/
+│ ├── routes/ # Twilio webhook handlers
+│ ├── services/ # Deepgram & AI services
+│ └── index.js # Entry point
+├── .env.example
+└── README.md
 
-With the server running, call your Twilio phone number. Once the call connects, you can interact with the AI-powered voice assistant.
 
-## Project Structure
 
-```
-.
-├── index.js
-└── src
-    ├── config
-    │   └── dotenv.js
-    ├── routes
-    │   ├── rootRoute.js
-    │   └── twilioRoute.js
-    ├── services
-    │   ├── functionCall.js
-    │   └── functionCallHandler.js
-    ├──websockets
-    │   └── mediaStreamHandler.js
-    └── SettingsConfiguration.js
-```
+Built with ❤️ by Samir
 
-## How It Works
-
-1. **Incoming Calls**: A Twilio webhook forwards the incoming call to the `/incoming` endpoint.
-2. **Media Streaming**: Twilio streams the audio to the `/media-stream` WebSocket endpoint.
-3. **Deepgram Integration**: The application sends the audio to Deepgram’s Voice Agent API for transcription and response generation.
-4. **AI Responses**: Responses are sent back as audio, streamed to the caller via Twilio.
-
-## Medium Article
-
-For a step-by-step guide to building this application, check out our Medium article:
-
-[Build an AI Voice Assistant with Deepgram Voice Agent API and Twilio: A Step-by-Step Guide](https://medium.com/@prakhar.bhardwaj/building-an-ai-voice-assistant-with-deepgram-voice-agent-api-and-twilio-c8dcdc77dc23)
-
-## Resources
-
-- [Deepgram Voice Agent API Documentation](https://developers.deepgram.com/docs/voice-agent-settings-configuration)
-- [Twilio Media Streams Documentation](https://www.twilio.com/docs/voice/twiml/stream)
-
-With this setup, you’re ready to create a fully functional AI-powered voice assistant. Have fun experimenting and building! 🚀
+Want me to create this as an actual README.md file you can download, or just copy-paste this into your repo directly?​​​​​​​​​​​​​​​​
